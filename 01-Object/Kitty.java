@@ -21,4 +21,7 @@ public class Kitty {
   public void changeName(String newName){
     name = newName;
   }
+  public String toString(){
+    return "The amazing " + name;
+  }
 }

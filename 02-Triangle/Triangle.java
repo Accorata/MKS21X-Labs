@@ -29,6 +29,24 @@ public class Triangle {
     if (i == 3) v3 = newV;
   }
 
+  public static boolean closeEnough(double a, double b){
+    return a/b <= 0.00001;
+  }
+
+  public boolean equals(Triangle other){
+    return v1.equals(other.getVertex(1)) && v2.equals(other.getVertex(2)) && v3.equals(other.getVertex(3));
+  }
+
+  public String classify(){
+    int equalSides = 0;
+    if (v1.distanceTo(v2).closeEnough(v1.distanceTo(v3))) equalSides++;
+    if (v2.distanceTo(v1).closeEnough(v2.distanceTo(v3))) equalSides++;
+    if (v3.distanceTo(v1).closeEnough(v3.distanceTo(v2))) equalSides++;
+    if (equalSides == 0) return "scalene";
+    if (equalSides == 1) return "isoscelese";
+    if (equalSides == 3) return "equilateral";
+  }
+
   public String toString (){
     return "{" + v1 + ", " + v2 + ", " + v3 + "}";
   }

@@ -23,6 +23,15 @@ public class Point{
     return Math.sqrt(Math.pow(x-p2.getX(), 2)+Math.pow(y-p2.getY(), 2));
   }
 
+  public static boolean closeEnough(double a, double b){
+    if (a == 0 || b == 0) return a == b;
+    return a/b <= 0.00001;
+  }
+
+  public boolean equals(Point other){
+    return closeEnough(x, other.getX()) && closeEnough(y, other.getY());
+  }
+
   public String toString(){
     return "(" + x + ", " + y + ")";
   }

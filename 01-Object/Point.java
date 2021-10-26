@@ -22,4 +22,8 @@ public class Point{
   public double distanceTo(Point p2){
     return Math.sqrt(Math.pow(x-p2.getX(), 2)+Math.pow(y-p2.getY(), 2));
   }
+
+  public String toString(){
+    return "(" + x + ", " + y + ")";
+  }
 }

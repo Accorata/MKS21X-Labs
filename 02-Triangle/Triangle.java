@@ -44,7 +44,7 @@ public class Triangle {
     if (closeEnough(v1.distanceTo(v3), v1.distanceTo(v2))) equalSides++;
     if (closeEnough(v2.distanceTo(v3), v2.distanceTo(v1))) equalSides++;
     if (closeEnough(v3.distanceTo(v2), v3.distanceTo(v1))) equalSides++;
-    if (equalSides == 1) return "isoscelese";
+    if (equalSides == 1) return "isosceles";
     if (equalSides == 3) return "equilateral";
     return "scalene";
   }

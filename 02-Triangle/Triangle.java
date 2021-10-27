@@ -35,6 +35,7 @@ public class Triangle {
   }
 
   public boolean equals(Triangle other){
+    if (other == null) return false;
     return v1.equals(other.getVertex(1)) && v2.equals(other.getVertex(2)) && v3.equals(other.getVertex(3));
   }
 

@@ -30,7 +30,8 @@ public class Triangle {
   }
 
   public static boolean closeEnough(double a, double b){
-    return a/b <= 0.00001;
+    if (a == 0 || b == 0) return a == b;
+    return 2*Math.abs(a - b)/(a + b) <= 0.00001;
   }
 
   public boolean equals(Triangle other){
@@ -39,12 +40,17 @@ public class Triangle {
 
   public String classify(){
     int equalSides = 0;
-    if (v1.distanceTo(v2).closeEnough(v1.distanceTo(v3))) equalSides++;
-    if (v2.distanceTo(v1).closeEnough(v2.distanceTo(v3))) equalSides++;
-    if (v3.distanceTo(v1).closeEnough(v3.distanceTo(v2))) equalSides++;
-    if (equalSides == 0) return "scalene";
+    if (closeEnough(v1.distanceTo(v3), v1.distanceTo(v2))) equalSides++;
+    if (closeEnough(v2.distanceTo(v3), v2.distanceTo(v1))) equalSides++;
+    if (closeEnough(v3.distanceTo(v2), v3.distanceTo(v1))) equalSides++;
     if (equalSides == 1) return "isoscelese";
     if (equalSides == 3) return "equilateral";
+    return "scalene";
+  }
+
+  public double area(){
+    double s = getPerimeter() / 2;
+    return Math.sqrt(s*(s-v1.distanceTo(v2))*(s-v2.distanceTo(v3))*(s-v3.distanceTo(v1)));
   }
 
   public String toString (){

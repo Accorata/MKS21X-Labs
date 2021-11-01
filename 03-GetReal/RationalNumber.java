@@ -1,71 +1,61 @@
 public class RationalNumber extends RealNumber {
   private int numerator, denominator;
 
-  /**Initialize the RationalNumber with the provided values
-  *  if the denominator is 0, make the fraction 0/1 instead
-  *@param nume the numerator
-  *@param deno the denominator
-  */
   public RationalNumber(int nume, int deno){
     super(0.0);//this value is ignored!
+    if (deno == 0){
+      numerator = 0;
+      denominator = 0;
+    } else {
+      numerator = nume;
+      denominator = deno;
+    }
   }
 
   public double getValue(){
-    return 0.0;
+    return numerator/denominator;
   }
 
-  /**
-  *@return the numerator
-  */
   public int getNumerator(){
-    return 0;
+    return numerator;
   }
-  /**
-  *@return the denominator
-  */
+
   public int getDenominator(){
-    return 0;
+    return denominator;
   }
-  /**
-  *@return a new RationalNumber that has the same numerator
-  *and denominator as this RationalNumber but reversed.
-  */
+
   public RationalNumber reciprocal(){
-    return null;
+    return new RationalNumber (denominator, numerator);
   }
-  /**
-  *@return true when the RationalNumbers have the same numerators and denominators, false otherwise.
-  */
+
   public boolean equals(RationalNumber other){
-    return false;
+    return numerator == other.getNumerator() && denominator == other.getDenominator();
   }
 
-
-  /**
-  *@return the value expressed as "3/4" or "8/3"
-  */
   public String toString(){
-    return "0";
+    return "" + numerator + "/" + denominator;
   }
 
-  /**Calculate the GCD of two integers.
-  *@param a the first integers
-  *@param b the second integer
-  *@return the value of the GCD
-  */
   private static int gcd(int a, int b){
-    /*use euclids method or a better one*/
-    //http://sites.math.rutgers.edu/~greenfie/gs2004/euclid.html
-    return 0;
+    int lastDivisor = b;
+    int currentDivisor = a;
+    int storage;
+    if (a > b) {
+      lastDivisor = a;
+      currentDivisor = b;
+    }
+    while (lastDivisor % currentDivisor != 0){
+      storage = currentDivisor;
+      currentDivisor = lastDivisor % currentDivisor;
+      lastDivisor = storage;
+    }
+    return currentDivisor;
   }
 
-  /**
-  *Divide the numerator and denominator by the GCD
-  *This must be used to maintain that all RationalNumbers are
-  *reduced after construction.
-  */
-  private void reduce(){
-
+  public void reduce(){
+    int gcd = gcd(numerator,denominator);
+    numerator /= gcd;
+    denominator /= gcd;
   }
   /******************Operations Return a new RationalNumber!!!!****************/
   /**
@@ -91,7 +81,6 @@ public class RationalNumber extends RealNumber {
   /**
   *Return a new RationalNumber that this minus the other
   */
-}
   public RationalNumber subtract(RationalNumber other){
     return null;
   }

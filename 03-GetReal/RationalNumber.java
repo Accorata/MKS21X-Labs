@@ -2,7 +2,7 @@ public class RationalNumber extends RealNumber {
   private int numerator, denominator;
 
   public RationalNumber(int nume, int deno){
-    super(0.0);//this value is ignored!
+    super(0.0);
     if (deno == 0){
       numerator = 0;
       denominator = 0;
@@ -13,7 +13,7 @@ public class RationalNumber extends RealNumber {
   }
 
   public double getValue(){
-    return numerator/denominator;
+    return numerator / denominator;
   }
 
   public int getNumerator(){
@@ -52,36 +52,32 @@ public class RationalNumber extends RealNumber {
     return currentDivisor;
   }
 
-  public void reduce(){
+  private void reduce(){
     int gcd = gcd(numerator,denominator);
     numerator /= gcd;
     denominator /= gcd;
   }
-  /******************Operations Return a new RationalNumber!!!!****************/
-  /**
-  *Return a new RationalNumber that is the product of this and the other
-  */
+
   public RationalNumber multiply(RationalNumber other){
-    return null;
+    RationalNumber product = new RationalNumber (numerator * other.getNumerator(), denominator * other.getDenominator());
+    product.reduce();
+    return product;
   }
 
-  /**
-  *Return a new RationalNumber that is the this divided by the other
-  */
   public RationalNumber divide(RationalNumber other){
-    return null;
+    other = other.reciprocal();
+    return this.multiply(other);
   }
 
-  /**
-  *Return a new RationalNumber that is the sum of this and the other
-  */
   public RationalNumber add(RationalNumber other){
-    return null;
+    RationalNumber product = new RationalNumber (numerator * other.getDenominator() + other.getNumerator() * denominator, denominator * other.getDenominator());
+    product.reduce();
+    return product;
   }
-  /**
-  *Return a new RationalNumber that this minus the other
-  */
+
   public RationalNumber subtract(RationalNumber other){
-    return null;
+    RationalNumber product = new RationalNumber (numerator * other.getDenominator() - other.getNumerator() * denominator, denominator * other.getDenominator());
+    product.reduce();
+    return product;
   }
 }

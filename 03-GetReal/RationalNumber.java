@@ -10,10 +10,11 @@ public class RationalNumber extends RealNumber {
       numerator = nume;
       denominator = deno;
     }
+    this.reduce();
   }
 
   public double getValue(){
-    return numerator / denominator;
+    return (double) numerator / denominator;
   }
 
   public int getNumerator(){

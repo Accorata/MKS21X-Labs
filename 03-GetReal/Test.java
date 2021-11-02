@@ -30,14 +30,17 @@ public class Test {
     System.out.println(a.divide(a)); //1/1
     RationalNumber e = a.add(a);
     System.out.println(e); //1/1
+    System.out.println(e.getValue()); //1.0
     System.out.println(d.subtract(e)); //1/3
     RealNumber r1 = new RealNumber(1);
     RealNumber r2 = new RealNumber(20);
     RealNumber r3 = new RealNumber(3);
     RealNumber r4 = new RealNumber(7);
-    System.out.println(r1.subtract(e)); //0
-    System.out.println(r2.add(d)); //21.66666667
-    System.out.println(r3.divide(a)); //6
-    System.out.println(r4.multiply(r2)); //140
+    System.out.println(r1.subtract(e)); //0.0
+    System.out.println(r2.add(d)); //21.3333333333
+    System.out.println(r3.divide(a)); //6.0
+    System.out.println(r4.multiply(r2)); //140.0
+    RationalNumber f = new RationalNumber(-20,5);
+    System.out.println(f);
   }
 }

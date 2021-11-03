@@ -42,5 +42,11 @@ public class Test {
     System.out.println(r4.multiply(r2)); //140.0
     RationalNumber f = new RationalNumber(-20,5);
     System.out.println(f);
+    RationalNumber g = new RationalNumber(12,4);
+    System.out.println(r3.equals(g)); //true
+    System.out.println(r3.equals(f)); //false
+    System.out.println(r2.compareTo(d)); //1
+    System.out.println(r3.compareTo(g)); //0
+    System.out.println(r1.compareTo(g)); //-1
   }
 }

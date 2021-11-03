@@ -30,7 +30,9 @@ public class RealNumber{
   }
 
   public int compareTo(RealNumber other){
-
+    if (this.getValue() > other.getValue()) return 1;
+    if (this.getValue() < other.getValue()) return -1;
+    return 0;
   }
 
   public boolean equals(RealNumber other){

@@ -28,4 +28,12 @@ public class RealNumber{
   public String toString(){
     return ""+value;
   }
+
+  public int compareTo(RealNumber other){
+
+  }
+
+  public boolean equals(RealNumber other){
+    return this.getValue() == other.getValue();
+  }
 }

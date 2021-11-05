@@ -1,6 +1,6 @@
 public class Test {
   public static void main(String[] args){
-    SuperArray a = new SuperArray(4);
+    SuperArray a = new SuperArray(0);
     System.out.println(a.toStringDebug());
     a.add("This");
     a.add("And this too");

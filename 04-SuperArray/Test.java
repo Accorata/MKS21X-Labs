@@ -31,5 +31,10 @@ public class Test {
     a.set(a.size()-1, "NOPE!");
     System.out.println(a);
 
+    System.out.println(a.size());
+    System.out.println(a.remove(0));
+    System.out.println(a.remove(4));
+    System.out.println(a);
+    System.out.println(a.toStringDebug());
   }
 }

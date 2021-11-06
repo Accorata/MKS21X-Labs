@@ -65,4 +65,18 @@ public class SuperArray {
     data[index] = element;
     return old;
   }
+
+  public String remove(int index){
+    if (index < 0 || index >= size){
+      System.out.println("an error");
+      return null;
+    }
+    String old = data[index];
+    for (int i = index; i<size-1; i++){
+      set(i, get(i+1));
+    }
+    set(size, null);
+    size--;
+    return old;
+  }
 }

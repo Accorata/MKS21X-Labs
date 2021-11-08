@@ -66,6 +66,32 @@ public class SuperArray {
     return old;
   }
 
+  public int indexOf(String target) {
+    for (int i = 0; i<size; i++){
+      if (data[i] == target) return i;
+    }
+    return -1;
+  }
+
+  public int lastIndexOf(String target) {
+    for (int i = size-1; i>=size; i--){
+      if (data[i] == target) return i;
+    }
+    return -1;
+  }
+
+  public void add(int index, String value) {
+    if (index < 0 || index > size){
+      System.out.println("an error");
+    } else {
+      if (size == data.length) resize();
+      for (int i = size; i<=index; i--){
+        data[i] = data[i-1];
+      }
+      data[index] = value;
+    }
+  }
+
   public String remove(int index){
     if (index < 0 || index >= size){
       System.out.println("an error");
@@ -75,8 +101,12 @@ public class SuperArray {
     for (int i = index; i<size-1; i++){
       set(i, get(i+1));
     }
-    set(size, null);
+    set(size-1, null);
     size--;
     return old;
+  }
+
+  public boolean remove(String target){
+    return !(remove(indexOf(target)) == null);
   }
 }

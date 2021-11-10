@@ -50,16 +50,14 @@ public class SuperArray {
 
   public String get(int index){
     if (index < 0 || index >= size){
-      System.out.println("an error");
-      return null;
+      throw new IndexOutOfBoundsException ("get() requires integers between 0 and size not "+index);
     }
     return data[index];
   }
 
   public String set(int index, String element){
     if (index < 0 || index >= size){
-      System.out.println("an error");
-      return null;
+      throw new IndexOutOfBoundsException ("set() requires integers between 0 and size not "+index);
     }
     String old = data[index];
     data[index] = element;
@@ -82,7 +80,7 @@ public class SuperArray {
 
   public void add(int index, String value) {
     if (index < 0 || index > size){
-      System.out.println("an error");
+      throw new IndexOutOfBoundsException ("add() requires integers between 0 and size (inclusive) not "+index);
     } else {
       if (size == data.length) resize();
       for (int i = size; i>index; i--){

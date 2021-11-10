@@ -85,10 +85,11 @@ public class SuperArray {
       System.out.println("an error");
     } else {
       if (size == data.length) resize();
-      for (int i = size; i<=index; i--){
-        data[i] = data[i-1];
+      for (int i = size; i>index; i--){
+        if (i != 0) data[i] = data[i-1];
       }
       data[index] = value;
+      size++;
     }
   }
 

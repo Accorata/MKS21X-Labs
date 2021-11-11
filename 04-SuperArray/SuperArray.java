@@ -8,6 +8,7 @@ public class SuperArray {
   }
 
   public SuperArray(int initialCapacity){
+    if (initialCapacity < 0) throw new IllegalArgumentException ("SuperArray requires an integer greater than or equal to 0 not "+initialCapacity);
     data = new String[initialCapacity];
     size = 0;
   }
@@ -93,8 +94,7 @@ public class SuperArray {
 
   public String remove(int index){
     if (index < 0 || index >= size){
-      System.out.println("an error");
-      return null;
+      throw new IndexOutOfBoundsException ("remove() requires integers between 0 and size (inclusive) not "+index);
     }
     String old = data[index];
     for (int i = index; i<size-1; i++){

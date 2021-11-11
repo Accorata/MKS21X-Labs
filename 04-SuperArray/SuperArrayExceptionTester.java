@@ -82,8 +82,13 @@ public class SuperArrayExceptionTester{
 
     //Test7: constructor(-1 size)
     //BE CAREFUL! Which exception is expected?
-
-
-
+    testNum++;
+    testName = "constructor(-1 size)";
+    try{
+        SuperArray test = new SuperArray(-5);
+        System.out.println(testNum+". FAIL! No exception thrown "+testName);
+    }catch(IllegalArgumentException e){
+      System.out.println(testNum+". PASS "+testName);
+    }
   }
 }

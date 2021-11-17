@@ -18,7 +18,7 @@ public class ArrayListPractice {
 
   public static ArrayList<String> mixLists( ArrayList<String> a,  ArrayList<String> b){
     ArrayList newData = new ArrayList<String>();
-    for(int i = 0; i > a.size()+b.size(); i++){
+    for(int i = 0; i < (a.size()+b.size())*2; i++){
       try {
         if (i % 2 == 0){
           newData.add(a.get(i/2));

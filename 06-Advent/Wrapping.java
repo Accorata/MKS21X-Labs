@@ -19,9 +19,10 @@ public class Wrapping {
         newLine = input.nextLine().split("x");
         for (int i = 0; i<3; i++){
           points[i] = Integer.parseInt(newLine[i]);
-          if (i == 0) min = points[0];
-          else if (points[i] < min) min = points[i];
         }
+        min = points[0] * points[1];
+        if (points[1] * points[2] < min) min = points[1] * points[2];
+        if (points[0] * points[2] < min) min = points[0] * points[2];
         total += 2 * points[0] * points[1] + 2 * points[1] * points[2] + 2 * points[0] * points[2] + min;
       }
       input.close();

@@ -2,12 +2,14 @@ import java.io.*;
 import java.util.Scanner;
 public class Triangles {
   public static void main(String[] args){
-    System.out.println(problemOne());
-    System.out.println(problemTwo());
+    File data = new File (args[0]);
+    int mode = Integer.parseInt(args[1]);
+    if (mode == 1) System.out.println(problemOne(data));
+    if (mode == 2) System.out.println(problemTwo(data));
   }
-  public static int problemOne(){
+  public static int problemOne(File data){
     try {
-      File data = new File ("TriangleNumbers.txt");
+      //TriangleNumbers.txt
       Scanner input = new Scanner(data);
       int[] points = new int[3];
       int count = 0;
@@ -24,9 +26,8 @@ public class Triangles {
     }
     return 2000;
   }
-  public static int problemTwo(){
+  public static int problemTwo(File data){
     try {
-      File data = new File ("TriangleNumbers.txt");
       Scanner input = new Scanner(data);
       int[] points = new int[9];
       int count = 0;

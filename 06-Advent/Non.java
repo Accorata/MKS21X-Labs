@@ -51,20 +51,14 @@ public class Non {
         doubleLetters = false;
         for (int i = 0; i<newLine.length()-2; i++){
           if (newLine.charAt(i) == newLine.charAt(i+2)) oneLetter = true;
-          for (int j = i+1; j<newLine.length()-1; j++){
+          for (int j = i+2; j<newLine.length()-1; j++){
             if (newLine.substring(i,i+2).equals(newLine.substring(j,j+2))){
               doubleLetters = true;
             }
           }
         }
         //if (oneLetter && doubleLetters) total++;
-        if (oneLetter && doubleLetters){
-          System.out.println("True");
-          total++;
-        } else {
-          System.out.println(oneLetter);
-          System.out.println(doubleLetters);
-        }
+        if (oneLetter && doubleLetters) total++;
       }
       input.close();
       return total;

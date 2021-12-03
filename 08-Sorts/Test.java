@@ -62,7 +62,7 @@ public class Test {
     }
   }
   public static boolean finalTests(int test){
-    int[][] tests = new int[100000][0];
+    int[][] tests = new int[100000][0]; //I'm assuming this is enough
     boolean works = true;
     for (int i = 0; i<tests.length; i++){
       if(i % 5 == 0) tests[i] = randomArray((int)(Math.random()*100),-1000,1000);

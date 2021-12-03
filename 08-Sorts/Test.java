@@ -1,7 +1,9 @@
 import java.util.*;
 public class Test {
   public static void main(String[] args){
-    testSort(0);
+    //testSort(1);
+    System.out.println("Bubble Sort: "+finalTests(0));
+    System.out.println("Selection Sort: "+finalTests(1));
   }
   public static int[] randomArray(int len, int min, int max){
     int[] ans = new int[len];
@@ -26,7 +28,7 @@ public class Test {
   public static int[][] generateCurrentTests(){
     int[][] testCases = new int[5][0];
     testCases[0] = randomArray(10,0,10); //0 = randomArray
-    testCases[1] = randomSortedArray(10,0,10); //1 = randomSortedArray
+    testCases[1] = randomSortedArray(25,-4,10); //1 = randomSortedArray
     testCases[2] = randomReverseArray(10,0,10); //2 = randomReverseArray
     testCases[3] = randomArray(10,-1,1); //3 = similar
     testCases[4] = new int[0]; //4 = nothing
@@ -49,12 +51,40 @@ public class Test {
   public static void testSort (int test){
     int[][] tests = generateCurrentTests();
     for(int i = 0; i<tests.length; i++){
-      System.out.println(Arrays.toString(tests[i]));
+      System.out.println("1: " + Arrays.toString(tests[i]));
+      int [] correctSort = copy(tests[i]);
+      System.out.println(Arrays.toString(correctSort));
+      Arrays.sort(correctSort);
+      int [] testedSort = copy(tests[i]);
+      System.out.println(Arrays.toString(testedSort));
+      if(test == 0) Sorts.bubbleSort(testedSort);
+      else if(test == 1) Sorts.selectionSort(testedSort);
+      System.out.println(compare(correctSort, testedSort));
+    }
+  }
+  public static boolean finalTests(int test){
+    int[][] tests = new int[10000][0];
+    boolean works = true;
+    for (int i = 0; i<tests.length; i++){
+      if(i % 5 == 0) tests[i] = randomArray((int)(Math.random()*100),-1000,1000);
+      if(i % 5 == 1) tests[i] = randomSortedArray((int)(Math.random()*100),-1000,1000);
+      if(i % 5 == 2) tests[i] = randomReverseArray((int)(Math.random()*100),-1000,1000);
+      if(i % 5 == 3) tests[i] = randomArray((int)(Math.random()*100),-3,3);
+      if(i % 5 == 4) tests[i] = new int[0];
+    }
+    for (int i = 0; i<tests.length; i++){
       int [] correctSort = copy(tests[i]);
       Arrays.sort(correctSort);
       int [] testedSort = copy(tests[i]);
       if(test == 0) Sorts.bubbleSort(testedSort);
-      System.out.println(compare(correctSort, testedSort));
+      else if(test == 1) Sorts.selectionSort(testedSort);
+      if(!compare(correctSort, testedSort)){
+        System.out.println(i + ": " + Arrays.toString(tests[i]));
+        System.out.println(Arrays.toString(correctSort));
+        System.out.println(Arrays.toString(testedSort));
+        System.exit(1);
+      }
     }
+    return works;
   }
 }

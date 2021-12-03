@@ -57,8 +57,7 @@ public class Test {
       Arrays.sort(correctSort);
       int [] testedSort = copy(tests[i]);
       System.out.println(Arrays.toString(testedSort));
-      if(test == 0) Sorts.bubbleSort(testedSort);
-      else if(test == 1) Sorts.selectionSort(testedSort);
+      testedSort = determineSort(testedSort, test);
       System.out.println(compare(correctSort, testedSort));
     }
   }
@@ -76,8 +75,7 @@ public class Test {
       int [] correctSort = copy(tests[i]);
       Arrays.sort(correctSort);
       int [] testedSort = copy(tests[i]);
-      if(test == 0) Sorts.bubbleSort(testedSort);
-      else if(test == 1) Sorts.selectionSort(testedSort);
+      testedSort = determineSort(testedSort, test);
       if(!compare(correctSort, testedSort)){
         System.out.println(i + ": " + Arrays.toString(tests[i]));
         System.out.println(Arrays.toString(correctSort));
@@ -86,5 +84,10 @@ public class Test {
       }
     }
     return works;
+  }
+  public static int[] determineSort(int[] arr, int test){
+    if(test == 0) Sorts.bubbleSort(arr);
+    else if(test == 1) Sorts.selectionSort(arr);
+    return arr;
   }
 }

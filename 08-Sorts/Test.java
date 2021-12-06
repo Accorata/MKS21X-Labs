@@ -1,9 +1,10 @@
 import java.util.*;
 public class Test {
   public static void main(String[] args){
-    //testSort(1);
+    //testSort(2);
     System.out.println("Bubble Sort: "+finalTests(0));
     System.out.println("Selection Sort: "+finalTests(1));
+    System.out.println("Insertion Sort: "+finalTests(2));
   }
   public static int[] randomArray(int len, int min, int max){
     int[] ans = new int[len];
@@ -88,6 +89,7 @@ public class Test {
   public static int[] determineSort(int[] arr, int test){
     if(test == 0) Sorts.bubbleSort(arr);
     else if(test == 1) Sorts.selectionSort(arr);
+    else if(test == 2) Sorts.insertionSort(arr);
     return arr;
   }
 }

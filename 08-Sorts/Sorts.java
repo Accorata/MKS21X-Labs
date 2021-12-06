@@ -45,13 +45,16 @@ public class Sorts{
   public static void insertionSort(int[] data){
     int current;
     for (int i = 1; i<data.length; i++){
-      for (int j = i; j>0; j--){
-        if (data[j] < data[j-1]) {
-          current = data[j];
-          data[j] = data[j-1];
-          data[j-1] = current;
-        } else {
-          j = 0;
+      if (data[i] < data[i-1]) {
+        current = data[i];
+        System.out.println(current);
+        for (int j = i; j>0; j--){
+          if (current < data[j-1]) {
+            data[j-1] = current;
+          } else {
+            data[j] = current;
+            j = 0;
+          }
         }
       }
     }

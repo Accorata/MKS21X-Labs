@@ -1,10 +1,9 @@
 import java.util.*;
 public class Test {
   public static void main(String[] args){
-    testSort(2);
-    //System.out.println("Bubble Sort: "+finalTests(0));
-    //System.out.println("Selection Sort: "+finalTests(1));
-    //System.out.println("Insertion Sort: "+finalTests(2));
+    System.out.println("Bubble Sort: "+finalTests(0));
+    System.out.println("Selection Sort: "+finalTests(1));
+    System.out.println("Insertion Sort: "+finalTests(2));
   }
   public static int[] randomArray(int len, int min, int max){
     int[] ans = new int[len];
@@ -57,8 +56,8 @@ public class Test {
       Arrays.sort(correctSort);
       System.out.println(Arrays.toString(correctSort));
       int [] testedSort = copy(tests[i]);
-      System.out.println(Arrays.toString(testedSort));
       testedSort = determineSort(testedSort, test);
+      System.out.println(Arrays.toString(testedSort));
       System.out.println(compare(correctSort, testedSort));
     }
   }

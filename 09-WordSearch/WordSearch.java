@@ -60,12 +60,12 @@ public class WordSearch{
     }
     public boolean addWord(String word,int row, int col, int xdir, int ydir){
       for (int i = 0; i<word.length(); i++) {
-        if (col+i*xdir>=data.length || row+i*ydir>=data[col].length || (data[col+i*xdir][row+i*ydir] != '_' && data[col+i*xdir][row+i*ydir] != word.charAt(i))) {
+        if (col+i*ydir>=data.length || row+i*xdir>=data[col].length || (data[col+i*ydir][row+i*xdir] != '_' && data[col+i*ydir][row+i*xdir] != word.charAt(i))) {
           return false;
         }
       }
       for (int i = 0; i<word.length(); i++) {
-        data[col+i][row+i] = word.charAt(i);
+        data[col+i*ydir][row+i*xdir] = word.charAt(i);
       }
       return true;
     }

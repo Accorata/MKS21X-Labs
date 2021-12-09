@@ -10,7 +10,10 @@ public class Test{
     System.out.println(a.addWordVertical("ab",4,9));
     a.addWordHorizontal("the",1,5);
     a.addWordHorizontal("error",0,6);
-    a.addWordDiagonal("cool",6,1);
+    a.addWord("cool",6,1,1,1);
+    a.addWord("loud",9,4,-1,0);
+    a.addWord("off",8,3,1,-1);
+    a.addWord("of",8,3,1,-1);
     System.out.println(a);
   }
 }

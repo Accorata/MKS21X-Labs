@@ -1,9 +1,9 @@
 public class WordSearch{
     private char[][]data;
     public WordSearch(int rows,int cols){
-      data = new char[rows][];
-      for (int i = 0; i<rows; i++){
-        data[i] = new char[cols];
+      data = new char[cols][];
+      for (int i = 0; i<cols; i++){
+        data[i] = new char[rows];
       }
       clear();
     }
@@ -26,32 +26,46 @@ public class WordSearch{
       return grid;
     }
     public boolean addWordHorizontal(String word,int col, int row){
-      char[] letters = new char [word.length()];
-      for (int i = 0; i<letters.length; i++){
-        letters[i] = word.charAt(i);
-      }
-      for (int i = 0; i<letters.length; i++) {
-        if (col+i>=data[i].length || (data[row][col+i] != '_' && data[row][col+i] != letters[i])) {
+      for (int i = 0; i<word.length(); i++) {
+        if (col+i>=data.length || (data[col+i][row] != '_' && data[col+i][row] != word.charAt(i))) {
           return false;
         }
       }
-      for (int i = 0; i<letters.length; i++) {
-        data[row][col+i] = letters[i];
+      for (int i = 0; i<word.length(); i++) {
+        data[col+i][row] = word.charAt(i);
       }
       return true;
     }
     public boolean addWordVertical(String word,int col, int row){
-      char[] letters = new char [word.length()];
-      for (int i = 0; i<letters.length; i++){
-        letters[i] = word.charAt(i);
-      }
-      for (int i = 0; i<letters.length; i++) {
-        if (row+i>=data.length || (data[row+i][col] != '_' && data[row+i][col] != letters[i])) {
+      for (int i = 0; i<word.length(); i++) {
+        if (row+i>=data[col].length || (data[col][row+i] != '_' && data[col][row+i] != word.charAt(i))) {
           return false;
         }
       }
-      for (int i = 0; i<letters.length; i++) {
-        data[row+i][col] = letters[i];
+      for (int i = 0; i<word.length(); i++) {
+        data[col][row+i] = word.charAt(i);
+      }
+      return true;
+    }
+    public boolean addWordDiagonal(String word,int row, int col){
+      for (int i = 0; i<word.length(); i++) {
+        if (col+i>=data.length || row+i>=data[col].length || (data[col+i][row+i] != '_' && data[col+i][row+i] != word.charAt(i))) {
+          return false;
+        }
+      }
+      for (int i = 0; i<word.length(); i++) {
+        data[col+i][row+i] = word.charAt(i);
+      }
+      return true;
+    }
+    public boolean addWord(String word,int row, int col, int xdir, int ydir){
+      for (int i = 0; i<word.length(); i++) {
+        if (col+i*xdir>=data.length || row+i*ydir>=data[col].length || (data[col+i*xdir][row+i*ydir] != '_' && data[col+i*xdir][row+i*ydir] != word.charAt(i))) {
+          return false;
+        }
+      }
+      for (int i = 0; i<word.length(); i++) {
+        data[col+i][row+i] = word.charAt(i);
       }
       return true;
     }

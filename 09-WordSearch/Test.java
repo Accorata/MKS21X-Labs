@@ -1,9 +1,9 @@
 public class Test{
   public static void main(String[] args){
-    WordSearch a = new WordSearch(10,5);
+    WordSearch a = new WordSearch(10, 5, "W1.txt");
     System.out.println(a);
     System.out.println("----");
-    a.addWordVertical("hello",3,4);
+    /*a.addWordVertical("hello",3,4);
     a.addWordHorizontal("yu",0,1);
     a.addWordHorizontal("yuertyui",0,1);
     System.out.println(a.addWordVertical("WAYYYYYYYYTOOOLONGGG",4,1));
@@ -14,6 +14,6 @@ public class Test{
     a.addWord("loud",9,4,-1,0);
     a.addWord("off",8,3,1,-1);
     a.addWord("of",8,3,1,-1);
-    System.out.println(a);
+    System.out.println(a);*/
   }
 }

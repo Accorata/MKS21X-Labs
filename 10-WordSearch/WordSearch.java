@@ -29,7 +29,6 @@ public class WordSearch{
       clear();
       addAllWords(fileName);
     }
-    
     public WordSearch(int rows,int cols, String fileName){
       words = new ArrayList<String>();
       wordsAdded = new ArrayList<String>();

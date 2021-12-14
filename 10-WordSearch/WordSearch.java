@@ -7,13 +7,17 @@ public class WordSearch{
     private ArrayList<String> wordsAdded;
     private ArrayList<String> words;
     public static void main(String[] args){
-      if (args[4] == null) {
-        WordSearch(Integer.parseInt(args[0]), Integer.parseInt(args[1]), args[2], Integer.parseInt(args[3]));
-      } else {
-        WordSearch(Integer.parseInt(args[0]), Integer.parseInt(args[1]), args[2], Integer.parseInt(args[3]), Integer.parseInt(args[4]));
+      int mode = Integer.parseInt(args[3]);
+      WordSearch puzzle;
+      try {
+        puzzle = new WordSearch(Integer.parseInt(args[0]), Integer.parseInt(args[1]), args[2], Integer.parseInt(args[4]));
+      } catch (ArrayIndexOutOfBoundsException e){
+        puzzle = new WordSearch(Integer.parseInt(args[0]), Integer.parseInt(args[1]), args[2]);
       }
+      if (mode == 0) puzzle.fillInRandomLetters();
+      System.out.println(puzzle);
     }
-    public WordSearch(int rows,int cols, String fileName, int randSeed){
+    public WordSearch(int rows, int cols, String fileName, int randSeed){
       words = new ArrayList<String>();
       wordsAdded = new ArrayList<String>();
       seed = randSeed;
@@ -24,7 +28,6 @@ public class WordSearch{
       }
       clear();
       addAllWords(fileName);
-      addLetters();
     }
     public WordSearch(int rows,int cols, String fileName){
       words = new ArrayList<String>();
@@ -38,7 +41,6 @@ public class WordSearch{
       }
       clear();
       addAllWords(fileName);
-      addLetters();
     }
     private void clear(){
       for(int i = 0; i<data.length; i++){
@@ -101,11 +103,11 @@ public class WordSearch{
         System.exit(1);
       }
     }
-    private void addLetters(){
+    private void fillInRandomLetters(){
       for(int i = 0; i<data.length; i++){
         for(int j = 0; j<data[i].length; j++){
           if (data[i][j] == '_'){
-            data[i][j] = 'O';
+            data[i][j] = (char)('A'+ randgen.nextInt(26));
           }
         }
       }

@@ -16,6 +16,7 @@ public class WordSearch{
       }
       if (mode == 0) puzzle.fillInRandomLetters();
       System.out.println(puzzle);
+      System.out.println("Seed: "+puzzle.getSeed());
     }
     public WordSearch(int rows, int cols, String fileName, int randSeed){
       words = new ArrayList<String>();
@@ -48,6 +49,9 @@ public class WordSearch{
           data[i][j] = '_';
         }
       }
+    }
+    public int getSeed(){
+      return seed;
     }
     public String toString(){
       String grid = "";

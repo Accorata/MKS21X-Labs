@@ -7,8 +7,11 @@ public class ParseInt {
     int ans = 0;
     for (int i = 0; i<s.length(); i++){
       ans *= 10;
-      ans += valueOfChar(s.charAt(i));
+      if (s.charAt(i) != '-') {
+        ans += valueOfChar(s.charAt(i));
+      }
     }
+    if (s.charAt(0) == '-') ans *= -1;
     return ans;
   }
   public static int valueOfChar(char c){

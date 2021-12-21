@@ -19,7 +19,7 @@ public class Test{
     //System.out.println(b.set(0, null));
     System.out.println(a);
     //System.out.println(b);
-    //a.add(null);
+    a.add(null);
     c.add(56);
     c.add(456);
     c.add(-45678);

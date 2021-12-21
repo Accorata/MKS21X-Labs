@@ -21,7 +21,7 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
     add(t);
   }
   private int WhereToPlace(T value){
-    if (value == null) return null;
+    if (value == null) return 0;
     int ans = 0;
     for (int i = 0; i<size(); i++){
       if (value.compareTo(get(i)) < 0){

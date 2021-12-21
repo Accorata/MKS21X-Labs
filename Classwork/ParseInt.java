@@ -1,7 +1,13 @@
 public class ParseInt {
   public static void main(String[] args){
-    String s = "345678";
+    String s = "-56";
+    String s2 = "-345679900";
+    String s3 = "0";
+    String s4 = "777";
     System.out.println(stringToInt(s));
+    System.out.println(stringToInt(s2));
+    System.out.println(stringToInt(s3));
+    System.out.println(stringToInt(s4));
   }
   public static int stringToInt(String s){
     int ans = 0;

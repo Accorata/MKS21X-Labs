@@ -22,7 +22,7 @@ public abstract class Adventurer implements Damageable{
     }
 
     //Adventurer methods
-    public void affects(int d){
+    public int affects(int d){
       int damage = d;
       if (condition == "Burning") this.HP -= 1;
       if (condition == "Frozen") damage -= 2;

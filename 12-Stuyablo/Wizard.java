@@ -1,16 +1,16 @@
 public class Wizard extends Adventurer {
     private int spell;
-    private int element;
+    private String element;
 
     public Wizard(){
 	     this("Azerious");
     }
 
     public Wizard(String name){
-	     this(name, (int)(Math.random()*3), (int)(Math.random()*3));
+	     this(name, (int)(Math.random()*2)+1, "Fire");
     }
 
-    public Wizard(String name, int spell, int element){
+    public Wizard(String name, int spell, String element){
       super(name,20+(int)(Math.random()*5));
       setSpell(spell);
       setElement(element);
@@ -19,33 +19,30 @@ public class Wizard extends Adventurer {
     //wizard methods
 
     public void attack(Damageable other){
-    // 	  int damage = (int)(Math.random()*10)+1;
-  	//     other.applyDamage(damage);
-  	//     setRage(getRage() + 1);
-  	//     System.out.println(this +
-    //         " attacked " + other + " for " +
-    //         damage + " damage!");
-    //
+    	  int damage = (int)(Math.random()*5*spell);
+        damage = super.affects(damage);
+  	    other.applyDamage(damage);
+  	    setSpell(getSpell()+1);
+        if(getSpell()>=4) setSpell(1);
+  	    System.out.println(this +
+            " attacked " + other + " for " +
+            damage + " damage!");
+
     }
 
     public void specialAttack(Damageable other){
-	  //    if(getRage() >= 10){
-  	//         int damage = (int)(Math.random()*20)+1;
-    //         other.applyDamage(damage);
-    //         System.out.println(this + " unleashes his fury upon "
-    //          + other + " for " + damage + " damage! "+warcry);
-    //         setRage(getRage() - 10);
-	  //   }else{
-		// 	    System.out.println("Not enough rage! ");
-    //       attack(other);
-	  //   }
+        String effect = "";
+        if (element == "Fire") effect = "Burning";
+        if (element == "Ice") effect = "Frozen";
+        other.setCondition(effect);
+        System.out.println(this + " inflicted " + other + " with " + effect + "!");
     }
 
     //get methods
     public int getSpell(){
 	     return spell;
     }
-    public int getElement(){
+    public String getElement(){
 	     return element;
     }
 
@@ -53,7 +50,7 @@ public class Wizard extends Adventurer {
     public void setSpell(int s){
 	     spell = s;
     }
-    public void setElement(int e){
+    public void setElement(String e){
 	     element = e;
     }
 }

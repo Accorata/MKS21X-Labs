@@ -20,11 +20,13 @@ public class Warrior extends Adventurer {
 
     public void attack(Damageable other){
     	  int damage = (int)(Math.random()*10)+1;
+        damage = super.affects(damage);
   	    other.applyDamage(damage);
   	    setRage(getRage() + 1);
   	    System.out.println(this +
             " attacked " + other + " for " +
             damage + " damage!");
+
     }
 
     public void specialAttack(Damageable other){

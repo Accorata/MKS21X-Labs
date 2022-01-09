@@ -2,6 +2,7 @@ import java.util.Random;
 public abstract class Adventurer implements Damageable{
     private String name;
     private int HP;
+    private String condition;
 
     //Abstract methods are meant to be implemented in child classes.
     public abstract void attack(Damageable other);
@@ -20,6 +21,14 @@ public abstract class Adventurer implements Damageable{
        this.HP = hp;
     }
 
+    //Adventurer methods
+    public void affects(int d){
+      int damage = d;
+      if (condition == "Burning") this.HP -= 1;
+      if (condition == "Frozen") damage -= 2;
+      return damage;
+    }
+
     //toString method
     public String toString(){
     	return this.getName();
@@ -35,6 +44,7 @@ public abstract class Adventurer implements Damageable{
     }
 
     public void applyDamage(int amount){
+      if (condition == "Bleeding") amount++;
       this.HP -= amount;
     }
 
@@ -47,5 +57,7 @@ public abstract class Adventurer implements Damageable{
 	     this.name = s;
     }
 
-
+    public void setCondition(String c){
+	     this.condition = c;
+    }
 }

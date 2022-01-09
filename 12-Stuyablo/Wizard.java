@@ -1,13 +1,13 @@
 public class Wizard extends Adventurer {
     private int spell;
-    private String element;
+    private String mastery;
 
     public Wizard(){
 	     this("Azerious");
     }
 
     public Wizard(String name){
-	     this(name, (int)(Math.random()*2)+1, "Fire");
+	     this(name, (int)(Math.random()*2)+1, "Pyromancy");
     }
 
     public Wizard(String name, int spell, String element){
@@ -32,8 +32,8 @@ public class Wizard extends Adventurer {
 
     public void specialAttack(Damageable other){
         String effect = "";
-        if (element == "Fire") effect = "Burning";
-        if (element == "Ice") effect = "Frozen";
+        if (element == "Pyromancy") effect = "Burning";
+        if (element == "Cryomancy") effect = "Frozen";
         other.setCondition(effect);
         System.out.println(this + " inflicted " + other + " with " + effect + "!");
     }

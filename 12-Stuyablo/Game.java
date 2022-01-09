@@ -1,7 +1,9 @@
 public class Game{
   public static void main(String[] args) {
-    Adventurer a = new Warrior("Conan","Aaaaaaaar!",20);
-    Adventurer b = new Warrior("Homer","Donuts?",0);
+    //Adventurer a = new Warrior("Conan","Aaaaaaaar!",20);
+    //Adventurer b = new Warrior("Homer","Donuts?",0);
+    Adventurer a = new Wizard();
+    Adventurer b = new Wizard("",3,"Cryomancy");
     System.out.println(a+" ("+a.getHP()+"HP)");
     System.out.println(b+" ("+b.getHP()+"HP)");
     a.attack(b);
@@ -12,7 +14,5 @@ public class Game{
     b.specialAttack(a);
     System.out.println(a+" ("+a.getHP()+"HP)");
     System.out.println(b+" ("+b.getHP()+"HP)");
-    Adventurer d = new Warrior();
-    Adventurer c = new Wizard();
   }
 }

@@ -12,7 +12,7 @@ public class Game{
     b.specialAttack(a);
     System.out.println(a+" ("+a.getHP()+"HP)");
     System.out.println(b+" ("+b.getHP()+"HP)");
-
-    }
-
+    Adventurer d = new Warrior();
+    Adventurer c = new Wizard();
+  }
 }

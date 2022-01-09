@@ -10,10 +10,10 @@ public class Wizard extends Adventurer {
 	     this(name, (int)(Math.random()*2)+1, "Pyromancy");
     }
 
-    public Wizard(String name, int spell, String element){
+    public Wizard(String name, int spell, String mastery){
       super(name,20+(int)(Math.random()*5));
       setSpell(spell);
-      setElement(element);
+      setMastery(mastery);
     }
 
     //wizard methods
@@ -32,8 +32,8 @@ public class Wizard extends Adventurer {
 
     public void specialAttack(Damageable other){
         String effect = "";
-        if (element == "Pyromancy") effect = "Burning";
-        if (element == "Cryomancy") effect = "Frozen";
+        if (mastery == "Pyromancy") effect = "Burning";
+        if (mastery == "Cryomancy") effect = "Frozen";
         other.setCondition(effect);
         System.out.println(this + " inflicted " + other + " with " + effect + "!");
     }
@@ -42,15 +42,15 @@ public class Wizard extends Adventurer {
     public int getSpell(){
 	     return spell;
     }
-    public String getElement(){
-	     return element;
+    public String getMastery(){
+	     return mastery;
     }
 
     //set methods
     public void setSpell(int s){
 	     spell = s;
     }
-    public void setElement(String e){
-	     element = e;
+    public void setMastery(String m){
+	     mastery = m;
     }
 }

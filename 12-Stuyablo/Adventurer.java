@@ -26,6 +26,7 @@ public abstract class Adventurer implements Damageable{
       int damage = d;
       if (condition == "Burning") this.HP -= 1;
       if (condition == "Frozen") damage -= 2;
+      if (damage <= 0) return 0;
       return damage;
     }
 

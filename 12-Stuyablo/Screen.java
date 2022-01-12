@@ -6,9 +6,10 @@ public class Screen {
     Scanner input = new Scanner (System.in);
     String last = "";
     while(last != "q" && last != "quit"){
-      num = randFour();
+      if (last != "") num = randFour();
       display(num);
       last = input.nextLine().toLowerCase();
+      System.out.println(last);
     }
     input.close();
   }
@@ -29,7 +30,7 @@ public class Screen {
     }
     for(int i = 0; i<4; i++){
       Text.go(3,16+i*16);
-      int color = Text.BLACK;
+      int color = Text.WHITE;
       if (num[i] < 25) color = Text.RED;
       if (num[i] > 75) color = Text.GREEN;
       System.out.println(Text.colorize(""+num[i],color));

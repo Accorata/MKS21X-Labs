@@ -25,11 +25,12 @@ public class Screen {
     }
     Text.go(30,1);
     Text.showCursor();
-    // Scanner input = new Scanner (System.in);
-    // while(input.nextLine() != "q" && input.nextLine != "quit"){
-    //   num = randFour();
-    // }
-    // input.close();
+    System.out.println(Text.colorize(">",Text.GREEN));
+    Scanner input = new Scanner (System.in);
+    while(input.nextLine() != "q" && input.nextLine() != "quit"){
+      num = randFour();
+    }
+    input.close();
   }
   private static int[] randFour(){
     int[] num = new int[4];

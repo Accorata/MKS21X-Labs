@@ -2,6 +2,17 @@ import java.util.Scanner;
 public class Screen {
   public static void main(String[] args){
     int[] num = randFour();
+    display(num);
+    Scanner input = new Scanner (System.in);
+    String last = "";
+    while(last != "q" && last != "quit"){
+      num = randFour();
+      display(num);
+      last = input.nextLine().toLowerCase();
+    }
+    input.close();
+  }
+  private static void display(int[] num){
     Text.hideCursor();
     Text.clear();
     for(int i = 0; i<30; i++){
@@ -12,9 +23,9 @@ public class Screen {
     }
     for(int i = 0; i<80; i++){
       Text.go(0,i);
-      System.out.println(Text.colorize(" ",Text.GREEN+Text.BACKGROUND));
+      System.out.print(Text.colorize(" ",Text.GREEN+Text.BACKGROUND));
       Text.go(29,i);
-      System.out.println(Text.colorize(" ",Text.GREEN+Text.BACKGROUND));
+      System.out.print(Text.colorize(" ",Text.GREEN+Text.BACKGROUND));
     }
     for(int i = 0; i<4; i++){
       Text.go(3,16+i*16);
@@ -25,12 +36,7 @@ public class Screen {
     }
     Text.go(30,1);
     Text.showCursor();
-    System.out.println(Text.colorize(">",Text.GREEN));
-    Scanner input = new Scanner (System.in);
-    while(input.nextLine() != "q" && input.nextLine() != "quit"){
-      num = randFour();
-    }
-    input.close();
+    System.out.print(Text.colorize(">",Text.GREEN));
   }
   private static int[] randFour(){
     int[] num = new int[4];

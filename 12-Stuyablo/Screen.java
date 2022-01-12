@@ -9,7 +9,7 @@ public class Screen {
       if (last != "") num = randFour();
       display(num);
       last = input.nextLine().toLowerCase();
-      System.out.println(last);
+      //last = "q";
     }
     input.close();
   }

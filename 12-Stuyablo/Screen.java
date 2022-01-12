@@ -19,7 +19,8 @@ public class Screen {
       Text.go(3,16+i*16);
       int color = Text.BLACK;
       if (num < 25) color = Text.RED;
-      System.out.println(Text.colorize("20",color));
+      if (num > 75) color = Text.GREEN;
+      System.out.println(Text.colorize(""+num,color));
     }
     Text.go(30,1);
     Text.showCursor();

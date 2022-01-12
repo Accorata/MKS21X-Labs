@@ -1,3 +1,4 @@
+import java.util.Scanner;
 public class Screen {
   public static void main(String[] args){
     int[] num = randFour();
@@ -18,12 +19,17 @@ public class Screen {
     for(int i = 0; i<4; i++){
       Text.go(3,16+i*16);
       int color = Text.BLACK;
-      if (num < 25) color = Text.RED;
-      if (num > 75) color = Text.GREEN;
-      System.out.println(Text.colorize(""+num,color));
+      if (num[i] < 25) color = Text.RED;
+      if (num[i] > 75) color = Text.GREEN;
+      System.out.println(Text.colorize(""+num[i],color));
     }
     Text.go(30,1);
     Text.showCursor();
+    // Scanner input = new Scanner (System.in);
+    // while(input.nextLine() != "q" && input.nextLine != "quit"){
+    //   num = randFour();
+    // }
+    // input.close();
   }
   private static int[] randFour(){
     int[] num = new int[4];

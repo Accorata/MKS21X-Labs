@@ -1,5 +1,6 @@
 public class Screen {
   public static void main(String[] args){
+    int[] num = randFour();
     Text.hideCursor();
     Text.clear();
     for(int i = 0; i<30; i++){
@@ -15,7 +16,6 @@ public class Screen {
       System.out.println(Text.colorize(" ",Text.GREEN+Text.BACKGROUND));
     }
     for(int i = 0; i<4; i++){
-      int num = (int)(Math.random()*100);
       Text.go(3,16+i*16);
       int color = Text.BLACK;
       if (num < 25) color = Text.RED;
@@ -24,5 +24,12 @@ public class Screen {
     }
     Text.go(30,1);
     Text.showCursor();
+  }
+  private static int[] randFour(){
+    int[] num = new int[4];
+    for(int i = 0; i<4; i++){
+      num[i] = (int)(Math.random()*100);
+    }
+    return num;
   }
 }

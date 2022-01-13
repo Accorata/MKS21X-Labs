@@ -14,7 +14,10 @@ public class StuyabloGame{
   public static void drawParty(ArrayList<Adventurer> party,int startRow){
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     for (int i = 0; i<party.size(); i++){
-      drawText(party.get(i).getName(), startRow);
+      Text.go(startRow, 16+i*16);
+      System.out.print(party.get(i).getName());
+      Text.go(startRow+1, 16+i*16);
+      System.out.print(party.get(i).getHP());
     }
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
   }
@@ -39,7 +42,6 @@ public class StuyabloGame{
       System.out.print(Text.colorize(" ",Text.GREEN+Text.BACKGROUND));
     }
   }
-
 
   public static void run(){
     //Clear and initialize

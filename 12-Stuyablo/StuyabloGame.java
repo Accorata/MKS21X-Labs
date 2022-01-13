@@ -24,16 +24,16 @@ public class StuyabloGame{
   }
 
   public static void drawScreen(){
-    for(int i = 0; i<30; i++){
+    for(int i = 0; i<HEIGHT; i++){
       Text.go(i,0);
       System.out.println(Text.colorize(" ",Text.GREEN+Text.BACKGROUND));
-      Text.go(i,79);
+      Text.go(i,WIDTH-1);
       System.out.println(Text.colorize(" ",Text.GREEN+Text.BACKGROUND));
     }
-    for(int i = 0; i<80; i++){
+    for(int i = 0; i<WIDTH; i++){
       Text.go(0,i);
       System.out.print(Text.colorize(" ",Text.GREEN+Text.BACKGROUND));
-      Text.go(29,i);
+      Text.go(HEIGHT-1,i);
       System.out.print(Text.colorize(" ",Text.GREEN+Text.BACKGROUND));
     }
   }
@@ -76,18 +76,12 @@ public class StuyabloGame{
       if(partyTurn){
         //Process user input:
         if(input.equals("attack")){
-          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
           party.get(whichPlayer).attack(enemies.get(0));
-          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
         else if(input.equals("special")){
-          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
           party.get(whichPlayer).specialAttack(enemies.get(0));
-          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
         whichPlayer++;
-
-
 
         if(whichPlayer < party.size()){
           drawText("Enter command for "+party.get(whichPlayer)+": attack/special/quit",HEIGHT/2);
@@ -100,9 +94,11 @@ public class StuyabloGame{
         //display enemy attack except on turn 0.
         if(turn > 0){
           //Enemy action choices go here!
-          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          //YOUR CODE HERE
-          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+          if(Math.random()>0.4){
+            enemies.get(0).attack(party.get((int)(Math.random()*3)));
+          } else {
+            enemies.get(0).specialAttack(party.get((int)(Math.random()*3)));
+          }
         }
 
         //after enemy goes, change back to player's turn.

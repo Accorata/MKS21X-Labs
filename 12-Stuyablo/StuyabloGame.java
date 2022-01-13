@@ -36,9 +36,9 @@ public class StuyabloGame{
       System.out.println(Text.colorize(" ",Text.GREEN+Text.BACKGROUND));
     }
     for(int i = 0; i<WIDTH; i++){
-      Text.go(0,i);
+      Text.go(1,i);
       System.out.print(Text.colorize(" ",Text.GREEN+Text.BACKGROUND));
-      Text.go(HEIGHT-1,i);
+      Text.go(HEIGHT,i);
       System.out.print(Text.colorize(" ",Text.GREEN+Text.BACKGROUND));
     }
   }
@@ -119,7 +119,7 @@ public class StuyabloGame{
       }
 
       //display current state of all Adventurers
-      drawParty(party,1);
+      drawParty(party,2);
       drawParty(enemies,HEIGHT-4);
 
       //Draw the prompt

@@ -13,7 +13,9 @@ public class StuyabloGame{
   //Should include Name and HP on 2 separate lines. (more to be added later)
   public static void drawParty(ArrayList<Adventurer> party,int startRow){
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
+    for (int i = 0; i<party.size(); i++){
+      drawText(party.get(i).getName(), startRow);
+    }
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
   }
 
@@ -25,9 +27,9 @@ public class StuyabloGame{
 
   public static void drawScreen(){
     for(int i = 0; i<HEIGHT; i++){
-      Text.go(i,0);
+      Text.go(i,1);
       System.out.println(Text.colorize(" ",Text.GREEN+Text.BACKGROUND));
-      Text.go(i,WIDTH-1);
+      Text.go(i,WIDTH);
       System.out.println(Text.colorize(" ",Text.GREEN+Text.BACKGROUND));
     }
     for(int i = 0; i<WIDTH; i++){

@@ -34,7 +34,7 @@ public class StuyabloGame{
     String HPstats = "HP: ";
     if(party.get(i).getHP() / party.get(i).getmaxHP() >= 0.75) {
       HPstats += Text.colorize(party.get(i).getHP()+"/"+party.get(i).getmaxHP(), Text.GREEN);
-    } else if (party.get(i).getHP() / party.get(i).getmaxHP() <= 0.25) {
+    } else if ((0.0 + party.get(i).getHP()) / party.get(i).getmaxHP() <= 0.25) {
       HPstats += Text.colorize(party.get(i).getHP()+"/"+party.get(i).getmaxHP(), Text.RED);
     } else {
       HPstats += party.get(i).getHP()+"/"+party.get(i).getmaxHP();

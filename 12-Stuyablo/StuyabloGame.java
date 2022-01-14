@@ -61,7 +61,7 @@ public class StuyabloGame{
     //Make an ArrayList of Adventurers and add 1 enemy to it.
     ArrayList<Adventurer>enemies = new ArrayList<>();
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    enemies.add(new Warrior());
+    enemies.add(new Wizard());
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
     //Adventurers you control:
@@ -98,9 +98,9 @@ public class StuyabloGame{
         whichPlayer++;
 
         if(whichPlayer < party.size()){
-          drawText("Enter command for "+party.get(whichPlayer)+": attack/special/quit",HEIGHT/2);
+          drawText("Enter command for "+party.get(whichPlayer)+": attack/special/quit", HEIGHT*2/3);
         }else{
-          drawText("press enter to see monster's turn",HEIGHT/2);
+          drawText("press enter to see monster's turn", HEIGHT*2/3);
           partyTurn = false;
         }
       }else{
@@ -119,7 +119,7 @@ public class StuyabloGame{
         partyTurn=true;
         whichPlayer = 0;
         //display which player's turn is next and prompt for action.
-        drawText("Enter command for "+party.get(whichPlayer)+": attack/special/quit",HEIGHT*2/3);
+        drawText("Enter command for "+party.get(whichPlayer)+": attack/special/quit", HEIGHT*2/3);
 
         //end the turn.
         turn++;

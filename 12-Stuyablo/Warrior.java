@@ -1,6 +1,7 @@
 public class Warrior extends Adventurer {
     private int  rage;
     private String warcry;
+    private int rageMax;
 
     public Warrior(){
 	     this("Magnus");
@@ -43,9 +44,17 @@ public class Warrior extends Adventurer {
     }
 
     //get methods
-
     public int getRage(){
 	     return rage;
+    }
+    public String getSpecialName(){
+      return "Rage";
+    }
+    public int getSpecialMax(){
+      return rageMax;
+    }
+    public int getSpecial(){
+      return rage;
     }
 
     //set methods

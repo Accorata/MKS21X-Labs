@@ -1,5 +1,6 @@
 public class Wizard extends Adventurer {
     private int spell;
+    private int spellMax = 3;
     private String mastery;
 
     public Wizard(){
@@ -44,6 +45,15 @@ public class Wizard extends Adventurer {
     }
     public String getMastery(){
 	     return mastery;
+    }
+    public String getSpecialName(){
+      return "Spell";
+    }
+    public int getSpecialMax(){
+      return spellMax;
+    }
+    public int getSpecial(){
+      return spell;
     }
 
     //set methods

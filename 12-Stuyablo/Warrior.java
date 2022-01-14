@@ -15,10 +15,15 @@ public class Warrior extends Adventurer {
       super(name,30+(int)(Math.random()*10));
       setWarcry(warcry);
       setRage(rage);
+      int max = rage+(int)(Math.random()*10);
+      if (max < 10){
+        setMaxRage(10);
+      } else {
+        setMaxRage(max);
+      }
     }
 
     //warrior methods
-
     public void attack(Damageable other){
     	  int damage = (int)(Math.random()*10)+1;
         damage = super.affects(damage);

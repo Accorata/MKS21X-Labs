@@ -17,7 +17,9 @@ public class StuyabloGame{
       Text.go(startRow, 16+i*16);
       System.out.print(party.get(i).getName());
       Text.go(startRow+1, 16+i*16);
-      System.out.print(party.get(i).getHP());
+      System.out.print(party.get(i).getSpecialName()+": "+party.get(i).getSpecial()+"/"+party.get(i).getSpecialMax());
+      Text.go(startRow+2, 16+i*16);
+      System.out.print("HP: "+party.get(i).getHP()+"/"+party.get(i).getmaxHP());
     }
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
   }

@@ -30,7 +30,7 @@ public abstract class Adventurer implements Damageable{
     public Adventurer(String name, int hp){
        this.name = name;
        this.HP = hp;
-       setMaxHP(hp);
+       this.maxHP = hp;
     }
 
     //Adventurer methods

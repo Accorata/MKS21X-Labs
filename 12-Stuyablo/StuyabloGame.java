@@ -19,7 +19,7 @@ public class StuyabloGame{
       Text.go(startRow+1, 16+i*16);
       System.out.print(party.get(i).getSpecialName()+": "+party.get(i).getSpecial()+"/"+party.get(i).getSpecialMax());
       Text.go(startRow+2, 16+i*16);
-      System.out.print("HP: "+party.get(i).getHP()+"/"+party.get(i).getmaxHP());
+      System.out.print(displayHP(party, i));
     }
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
   }
@@ -30,6 +30,17 @@ public class StuyabloGame{
     System.out.print(s);
   }
 
+  public static String displayHP(ArrayList<Adventurer> party,int i){
+    String HPstats = "HP: ";
+    if(party.get(i).getHP() / party.get(i).getmaxHP() >= 0.75) {
+      HPstats += Text.colorize(party.get(i).getHP()+"/"+party.get(i).getmaxHP(), Text.GREEN);
+    } else if (party.get(i).getHP() / party.get(i).getmaxHP() <= 0.25) {
+      HPstats += Text.colorize(party.get(i).getHP()+"/"+party.get(i).getmaxHP(), Text.RED);
+    } else {
+      HPstats += party.get(i).getHP()+"/"+party.get(i).getmaxHP();
+    }
+    return HPstats;
+  }
   public static void drawScreen(){
     for(int i = 0; i<HEIGHT; i++){
       Text.go(i,1);
@@ -46,12 +57,6 @@ public class StuyabloGame{
   }
 
   public static void run(){
-    //Clear and initialize
-    Text.hideCursor();
-    Text.clear();
-    Text.go(1,1);
-
-
     //Things to attack:
     //Make an ArrayList of Adventurers and add 1 enemy to it.
     ArrayList<Adventurer>enemies = new ArrayList<>();
@@ -64,7 +69,7 @@ public class StuyabloGame{
     ArrayList<Adventurer> party = new ArrayList<>();
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     party.add(new Warrior());
-    party.add(new Warrior());
+    party.add(new Wizard());
     party.add(new Warrior());
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
@@ -75,9 +80,10 @@ public class StuyabloGame{
     String input = "";
     Scanner in = new Scanner(System.in);
     while(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))){
-
       //Draw the window border
       Text.hideCursor();
+      Text.clear();
+      Text.go(1,1);
       drawScreen();
 
       //display event based on last turn's input
@@ -103,9 +109,9 @@ public class StuyabloGame{
         if(turn > 0){
           //Enemy action choices go here!
           if(Math.random()>0.4){
-            enemies.get(0).attack(party.get((int)(Math.random()*3)));
+            drawText(enemies.get(0).attack(party.get((int)(Math.random()*3))), HEIGHT/3);
           } else {
-            enemies.get(0).specialAttack(party.get((int)(Math.random()*3)));
+            drawText(enemies.get(0).specialAttack(party.get((int)(Math.random()*3))), HEIGHT/3);
           }
         }
 
@@ -113,7 +119,7 @@ public class StuyabloGame{
         partyTurn=true;
         whichPlayer = 0;
         //display which player's turn is next and prompt for action.
-        drawText("Enter command for "+party.get(whichPlayer)+": attack/special/quit",HEIGHT/2);
+        drawText("Enter command for "+party.get(whichPlayer)+": attack/special/quit",HEIGHT*2/3);
 
         //end the turn.
         turn++;

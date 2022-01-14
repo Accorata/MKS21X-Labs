@@ -18,7 +18,6 @@ public class Wizard extends Adventurer {
     }
 
     //wizard methods
-
     public String attack(Damageable other){
     	  int damage = (int)(Math.random()*5*spell);
         damage = super.affects(damage);

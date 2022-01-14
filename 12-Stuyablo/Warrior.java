@@ -17,9 +17,9 @@ public class Warrior extends Adventurer {
       setRage(rage);
       int max = rage+(int)(Math.random()*10);
       if (max < 10){
-        setMaxRage(10);
+        this.rageMax = 10;
       } else {
-        setMaxRage(max);
+        this.rageMax = max;
       }
     }
 
@@ -37,11 +37,10 @@ public class Warrior extends Adventurer {
 	     if(getRage() >= 10){
   	        int damage = (int)(Math.random()*20)+1;
             other.applyDamage(damage);
-            return ""+ this + " unleashes his fury upon " + other + " for " + damage + " damage! "+warcry);
             setRage(getRage() - 10);
-	    }else{
-			    return "Not enough rage! " + attack(other);
+            return ""+ this + " unleashes his fury upon " + other + " for " + damage + " damage! "+warcry;
 	    }
+			return "Not enough rage! " + attack(other);
     }
 
     //get methods

@@ -3,14 +3,7 @@ public abstract class Adventurer implements Damageable{
     private String name;
     private int HP;
     private String condition;
-
     private int maxHP;
-    public int getmaxHP(){
-      return maxHP;
-    }
-    public void setmaxHP(int newMax){
-      maxHP = newMax;
-    }
 
     //return a String that contains the description of the results of the attack
     public abstract String attack(Damageable other);
@@ -37,6 +30,7 @@ public abstract class Adventurer implements Damageable{
     public Adventurer(String name, int hp){
        this.name = name;
        this.HP = hp;
+       setMaxHP(hp);
     }
 
     //Adventurer methods
@@ -58,26 +52,28 @@ public abstract class Adventurer implements Damageable{
     public String getName(){
     	return name;
     }
-
     public int getHP(){
 	     return HP;
     }
-
     public void applyDamage(int amount){
       if (condition == "Bleeding") amount++;
       this.HP -= amount;
+    }
+    public int getmaxHP(){
+      return maxHP;
     }
 
     //Set Methods
     public void setHP(int health){
 	     this.HP = health;
     }
-
     public void setName(String s){
 	     this.name = s;
     }
-
     public void setCondition(String c){
 	     this.condition = c;
+    }
+    public void setmaxHP(int newMax){
+       maxHP = newMax;
     }
 }

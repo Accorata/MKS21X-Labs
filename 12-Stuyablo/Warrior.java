@@ -24,27 +24,23 @@ public class Warrior extends Adventurer {
     }
 
     //warrior methods
-    public void attack(Damageable other){
+    public String attack(Damageable other){
     	  int damage = (int)(Math.random()*10)+1;
         damage = super.affects(damage);
   	    other.applyDamage(damage);
   	    setRage(getRage() + 1);
-  	    System.out.println(this +
-            " attacked " + other + " for " +
-            damage + " damage!");
+  	    return ""+ this + " attacked " + other + " for " + damage + " damage!";
 
     }
 
-    public void specialAttack(Damageable other){
+    public String specialAttack(Damageable other){
 	     if(getRage() >= 10){
   	        int damage = (int)(Math.random()*20)+1;
             other.applyDamage(damage);
-            System.out.println(this + " unleashes his fury upon "
-             + other + " for " + damage + " damage! "+warcry);
+            return ""+ this + " unleashes his fury upon " + other + " for " + damage + " damage! "+warcry);
             setRage(getRage() - 10);
 	    }else{
-			    System.out.println("Not enough rage! ");
-          attack(other);
+			    return "Not enough rage! " + attack(other);
 	    }
     }
 

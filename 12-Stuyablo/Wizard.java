@@ -19,24 +19,21 @@ public class Wizard extends Adventurer {
 
     //wizard methods
 
-    public void attack(Damageable other){
+    public String attack(Damageable other){
     	  int damage = (int)(Math.random()*5*spell);
         damage = super.affects(damage);
   	    other.applyDamage(damage);
   	    setSpell(getSpell()+1);
         if(getSpell()>=4) setSpell(1);
-  	    System.out.println(this +
-            " attacked " + other + " for " +
-            damage + " damage!");
-
+  	    return ""+ this + " attacked " + other + " for " + damage + " damage!";
     }
 
-    public void specialAttack(Damageable other){
+    public String specialAttack(Damageable other){
         String effect = "";
         if (mastery == "Pyromancy") effect = "Burning";
         if (mastery == "Cryomancy") effect = "Frozen";
         other.setCondition(effect);
-        System.out.println(this + " inflicted " + other + " with " + effect + "!");
+        return ""+ this + " inflicted " + other + " with " + effect + "!";
     }
 
     //get methods

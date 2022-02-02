@@ -1,7 +1,8 @@
 public class Recursion {
   public static void main(String[] args){
     int n = Integer.parseInt(args[0]);
-    System.out.println(makeWords(n, ""));
+    //System.out.println();
+    makeWords(n, "");
   }
   public static int fact(int n){
     if (n == 0) return 1;

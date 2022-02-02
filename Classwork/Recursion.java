@@ -1,7 +1,7 @@
 public class Recursion {
   public static void main(String[] args){
     int n = Integer.parseInt(args[0]);
-    System.out.println(toWord(n));
+    System.out.println(makeWords(n, ""));
   }
   public static int fact(int n){
     if (n == 0) return 1;
@@ -17,8 +17,13 @@ public class Recursion {
     if (n <= 1) return n;
     return fibonacci(n-1)+fibonacci(n-2);
   }
-  // public static String toWord(int n){
-  //   int digit = 0;
-  //   if(n%10 == 0)
-  // }
+  public static void makeWords(int size, String word){
+    if (word.length() >= size){
+      System.out.println(word);
+    } else {
+      for (char c = 'a'; c<='z'; c++){
+        makeWords(size, word+c);
+      }
+    }
+  }
 }
